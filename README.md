@@ -37,7 +37,6 @@ job-tracker-extension/
 ├─ options.html
 ├─ options.css
 ├─ options.js
-└─ icons/
 Notes
 Job descriptions vary a lot from site to site. If a description looks off, try highlighting only the main description on the page before saving.
 
