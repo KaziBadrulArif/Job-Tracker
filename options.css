@@ -1,0 +1,402 @@
+/* options.css */
+
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-2: #f2f5fa;
+  --text: #0f172a;
+  --muted: #64748b;
+  --muted-2: #94a3b8;
+
+  --border: rgba(15, 23, 42, 0.10);
+  --border-strong: rgba(15, 23, 42, 0.16);
+
+  --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 8px 20px rgba(15, 23, 42, 0.06);
+
+  --primary: #2563eb;        /* calm professional blue */
+  --primary-2: #1d4ed8;
+  --primary-soft: rgba(37, 99, 235, 0.10);
+
+  --danger: #dc2626;
+  --danger-2: #b91c1c;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+
+  --ring: 0 0 0 4px rgba(37, 99, 235, 0.18);
+
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ---------- Layout background ---------- */
+.bg {
+  min-height: 100vh;
+  padding: 28px 18px;
+  background:
+    radial-gradient(1200px 500px at 20% 0%, rgba(37, 99, 235, 0.08), transparent 55%),
+    radial-gradient(900px 450px at 90% 20%, rgba(15, 23, 42, 0.05), transparent 60%),
+    var(--bg);
+}
+
+/* ---------- App shell ---------- */
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
+}
+
+.brand {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(15, 23, 42, 0.06));
+  border: 1px solid var(--border);
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: -0.2px;
+}
+
+.sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.field {
+  position: relative;
+  flex: 1 1 320px;
+  min-width: 240px;
+}
+
+.icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-2);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.field input[type="text"] {
+  padding-left: 34px;
+}
+
+select {
+  min-width: 165px;
+  cursor: pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: var(--ring);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--border-strong);
+}
+
+.btn:active { transform: translateY(0px); }
+
+.btn.primary {
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  color: #fff;
+  border-color: rgba(37, 99, 235, 0.55);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+}
+
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.70);
+}
+
+.btn.danger {
+  background: linear-gradient(180deg, var(--danger), var(--danger-2));
+  color: #fff;
+  border-color: rgba(220, 38, 38, 0.55);
+}
+
+.btn.danger:hover {
+  box-shadow: 0 10px 22px rgba(220, 38, 38, 0.18);
+}
+
+/* ---------- Stats area ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* If your JS injects cards, this will make them look good automatically */
+.stats > * {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+}
+
+/* ---------- Main / list ---------- */
+main {
+  padding: 16px 18px 20px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* If your JS inserts "card" divs, this applies to most common patterns */
+.list > * {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+  transition: transform 0.12s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.list > *:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 14px 26px rgba(15, 23, 42, 0.09);
+}
+
+/* ---------- Empty state ---------- */
+.empty {
+  text-align: center;
+  padding: 46px 18px;
+  background: rgba(255,255,255,0.55);
+  border: 1px dashed rgba(15, 23, 42, 0.18);
+  border-radius: var(--radius-lg);
+}
+
+.empty h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+}
+
+.empty p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- Modal ---------- */
+.modal {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.modal::backdrop {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.modalCard {
+  width: min(880px, calc(100vw - 28px));
+  margin: 10vh auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+  padding: 0;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 16px 14px;
+  background: linear-gradient(180deg, rgba(37,99,235,0.08), rgba(255,255,255,0));
+  border-bottom: 1px solid var(--border);
+}
+
+.modalKicker {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.modalTitle {
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+.link:hover { text-decoration: underline; }
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 14px 16px 0;
+}
+
+.row {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px 0;
+}
+
+label {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.72);
+  letter-spacing: 0.2px;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+/* Description box: no word limit, scroll for huge descriptions */
+.descBox {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 14px;
+  padding: 12px;
+  line-height: 1.55;
+  color: rgba(15, 23, 42, 0.88);
+  max-height: 320px;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+/* Footer */
+.modalFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.70);
+}
+
+.spacer { flex: 1; }
+
+/* ---------- Scrollbars (subtle) ---------- */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.18);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: rgba(15, 23, 42, 0.26); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .topbar { padding: 16px; }
+  main { padding: 14px 16px 18px; }
+  .modalGrid { grid-template-columns: 1fr; padding: 14px 16px 0; }
+  .toolbar select { min-width: 0; flex: 1 1 160px; }
+}

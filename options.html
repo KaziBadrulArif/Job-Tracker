@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="options.css" />
+    <title>Job Tracker</title>
+  </head>
+
+  <body>
+    <div class="bg">
+      <div class="app">
+        <header class="topbar">
+          <div class="brand">
+            <div class="logo">JT</div>
+            <div>
+              <h1>Job Tracker</h1>
+              <p class="sub">Keep your applications organized without the mess.</p>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="field">
+              <span class="icon">⌕</span>
+              <input id="search" type="text" placeholder="Search title or company..." />
+            </div>
+
+            <select id="filter">
+              <option value="ALL">All statuses</option>
+              <option value="Applied">Applied</option>
+              <option value="Interview">Interview</option>
+              <option value="Offer">Offer</option>
+              <option value="Rejected">Rejected</option>
+              <option value="Ghosted">Ghosted</option>
+            </select>
+
+            <select id="sort">
+              <option value="NEWEST">Newest first</option>
+              <option value="OLDEST">Oldest first</option>
+              <option value="COMPANY">Company A → Z</option>
+              <option value="TITLE">Title A → Z</option>
+            </select>
+
+            <button id="exportBtn" class="btn ghost">Export CSV</button>
+          </div>
+        </header>
+
+        <section class="stats" id="stats"></section>
+
+        <main>
+          <div id="list" class="list"></div>
+
+          <div id="empty" class="empty hidden">
+            <h2>No saved jobs yet</h2>
+            <p>
+              When you save a posting from the extension, it’ll show up here.
+              <br />
+              Tip: highlight only the job description before saving for perfect results.
+            </p>
+          </div>
+        </main>
+      </div>
+
+      <!-- Details modal -->
+      <dialog id="detailModal" class="modal">
+        <form method="dialog" class="modalCard">
+          <div class="modalHeader">
+            <div>
+              <p class="modalKicker" id="mCompany">Company</p>
+              <h3 class="modalTitle" id="mTitle">Title</h3>
+              <a id="mUrl" class="link" href="#" target="_blank" rel="noreferrer">Open posting ↗</a>
+            </div>
+            <button class="btn ghost" value="cancel" aria-label="Close">Close</button>
+          </div>
+
+          <div class="modalGrid">
+            <div class="row">
+              <label>Date applied</label>
+              <input id="mDateApplied" type="date" />
+            </div>
+
+            <div class="row">
+              <label>Status</label>
+              <select id="mProgress">
+                <option>Applied</option>
+                <option>Interview</option>
+                <option>Offer</option>
+                <option>Rejected</option>
+                <option>Ghosted</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <label>Notes</label>
+            <textarea id="mNotes" placeholder="Anything you want to remember? (referral, recruiter name, follow-up date, etc.)"></textarea>
+          </div>
+
+          <div class="row">
+            <label>Full description</label>
+            <div class="descBox" id="mDescription"></div>
+          </div>
+
+          <div class="modalFooter">
+            <button id="deleteBtn" class="btn danger" type="button">Delete</button>
+            <div class="spacer"></div>
+            <button id="saveBtn" class="btn primary" type="button">Save changes</button>
+          </div>
+        </form>
+      </dialog>
+
+      <script type="module" src="options.js"></script>
+    </div>
+  </body>
+</html>

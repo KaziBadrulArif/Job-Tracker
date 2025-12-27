@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Job Application Tracker",
+  "version": "1.0.0",
+  "description": "Save job descriptions + application progress in one click.",
+  "permissions": ["storage", "activeTab", "scripting", "sidePanel"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Job Tracker",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

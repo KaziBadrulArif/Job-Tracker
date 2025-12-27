@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="panel.css" />
+    <title>Job Tracker Panel</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="header">
+        <div>
+          <h1>Job Tracker</h1>
+          <p class="sub">Save clean descriptions + update progress while browsing.</p>
+        </div>
+        <a class="ghost" id="openTracker" href="#">Open Tracker</a>
+      </header>
+
+      <section class="card">
+        <div class="row">
+          <label>Date applied</label>
+          <input id="dateApplied" type="date" />
+        </div>
+
+        <div class="row">
+          <label>Progress</label>
+          <select id="progress">
+            <option>Applied</option>
+            <option>Interview</option>
+            <option>Offer</option>
+            <option>Rejected</option>
+            <option>Ghosted</option>
+          </select>
+        </div>
+
+        <button id="saveBtn" class="primary">
+          <span id="btnText">Save this job</span>
+          <span id="btnSpinner" class="spinner hidden"></span>
+        </button>
+
+        <details class="details">
+          <summary>Preview captured description</summary>
+          <div id="preview" class="preview"></div>
+          <p class="hint">Tip: highlight only the description on the page for perfect results.</p>
+        </details>
+
+        <div id="toast" class="toast hidden"></div>
+      </section>
+    </div>
+
+    <script type="module" src="panel.js"></script>
+  </body>
+</html>
